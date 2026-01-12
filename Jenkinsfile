@@ -1,9 +1,10 @@
 pipeline {
+
     agent any
 
     tools {
         maven 'MAVEN_3'
-        jdk 'JDK_17'
+        jdk 'JDK_21'
     }
 
     environment {
@@ -12,6 +13,7 @@ pipeline {
     }
 
     stages {
+
         stage('Checkout Code') {
             steps {
                 checkout scm
@@ -43,10 +45,10 @@ pipeline {
 
     post {
         success {
-            echo 'Pipeline executed successfully'
+            echo '✅ Java 21 CI/CD Pipeline Successful'
         }
         failure {
-            echo 'Pipeline failed'
+            echo '❌ Pipeline Failed'
         }
     }
 }
